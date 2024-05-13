@@ -1,0 +1,78 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-05-13T14:17:47.0964538"><title>Automated Testing | 4R Digital</title><script type="application/json" id="virtual-toc-data">[{"id":"unit-tests","level":0,"title":"Unit Tests","anchor":"#unit-tests"},{"id":"integration-tests","level":0,"title":"Integration Tests","anchor":"#integration-tests"},{"id":"testing-tips","level":0,"title":"Testing tips","anchor":"#testing-tips"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b259/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Automated Testing | 4R Digital"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="4R Digital Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/automated-testing.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Automated Testing | 4R Digital"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/automated-testing.html#webpage",
+    "url": "writerside-documentation/automated-testing.html",
+    "name": "Automated Testing | 4R Digital",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "4R Digital Help"
+}</script><!-- End Schema.org --></head><body data-id="Automated-Testing" data-main-title="Automated Testing" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Development-Processes.md|Software Development Practices"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>4R Digital  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Automated-Testing" id="Automated-Testing.md">Automated Testing</h1><p id="qg5546_710">We are very much infavour of automated testing and currently have 2 levels of Automated Tests:</p><ol class="list _decimal" id="qg5546_711" type="1"><li class="list__item" id="qg5546_712"><p>Unit Tests</p></li><li class="list__item" id="qg5546_713"><p>Integration Tests For more info please see below:</p></li></ol><section class="chapter"><h2 id="unit-tests" data-toc="unit-tests">Unit Tests</h2><p id="qg5546_714">We use unit test to test functional business, these test will often use a mocking framework (currently <a href="https://github.com/devlooped/moq" id="qg5546_715" data-external="true" rel="noopener noreferrer">Moq</a>) to mock dependencies so that we can focuss on testing the behaviour of the class / method under test. We make use of the <code class="code" id="qg5546_716">xUnit</code> unit testing framework for ochestrating our tests.</p></section><section class="chapter"><h2 id="integration-tests" data-toc="integration-tests">Integration Tests</h2><p id="qg5546_717">Alongside our unit tests we also have a large number of Integration Tests, mostly for our APIs. These test make use of the <code class="code" id="qg5546_718">Microsoft.AspNetCore.Mvc.Testing</code> framework to spin up a test host for the API, which can then be called and tested. We also back these tests with a <code class="code" id="qg5546_719">Sql Database</code> with is hosted in <code class="code" id="qg5546_720">Docker</code> and has the migrations applied. Each test is responsible for creating its own initial data in the database and we use the <code class="code" id="qg5546_721">Respawn</code> library to reset the DB after each test.</p><section class="chapter"><h3 id="our-implementation" data-toc="our-implementation">Our implementation</h3><p id="qg5546_722">NOTE: Before you start, you will need to run an instance of SQL in Docker. You can use the <code class="code" id="qg5546_723">sql-server-docker-compose.yml</code> file for this.</p><p id="qg5546_724">If you look at the <code class="code" id="qg5546_725">FourDBS.UnitTests</code> project in the <code class="code" id="qg5546_726">Api\Framework</code> folder you will see the following files:</p><ul class="list _bullet" id="qg5546_727"><li class="list__item" id="qg5546_728"><p><code class="code" id="qg5546_729">ApiBaseTest</code> - A base class for all Database backed integration tests (typically API tests). It contains functions for initialising the DB and has helper properties for accesing the DB.</p></li><li class="list__item" id="qg5546_730"><p><code class="code" id="qg5546_731">ApiCollection</code> - An xUnit Collection class which is used on the <code class="code" id="qg5546_732">ApiBaseTest</code> class above.</p></li><li class="list__item" id="qg5546_733"><p><code class="code" id="qg5546_734">ApiOrDbBackedTestApplication</code> - This implements microsoft's <code class="code" id="qg5546_735">ApiOrDbBackedTestApplication</code> class which is part of the <code class="code" id="qg5546_736">Microsoft.AspNetCore.Mvc.Testing</code> library, and overiddes the WebHost program class. This class initialises the SQL DB, creating it if necessary and running, allows the overriding of configured services and config, essentially it allows you to hook into various methods in the aspnet start up pipeline.</p></li><li class="list__item" id="qg5546_737"><p><code class="code" id="qg5546_738">DataInitialisationHelper</code> - A helper class that we have created to help with resetting the Database between tests and executing migrations.</p></li><li class="list__item" id="qg5546_739"><p><code class="code" id="qg5546_740">HttpClientHelper</code> - A helper class for calling API's in the various tests and deserializing results.</p></li><li class="list__item" id="qg5546_741"><p><code class="code" id="qg5546_742">TestConnectionStringProvider</code> - in our code we use a connection string provider to get a connection string for Entity Framework and/or NPoco. This is an implemenation the we use to overried the standard provider, so that the data access code points at the test DB.</p></li><li class="list__item" id="qg5546_743"><p><code class="code" id="qg5546_744">TestDbHelper</code> - Additional functionality for creating / drop / checking availability for the test database.</p></li></ul><section class="chapter"><h4 id="creating-and-api-or-db-backed-integration-test" data-toc="creating-and-api-or-db-backed-integration-test">Creating and API or DB Backed Integration Test</h4><p id="qg5546_745">To creat an integration test, use the following syntax:</p><div class="code-block" data-lang="csharp">
+[Trait(&quot;Category&quot;, &quot;AccountsApiTests&quot;)]
+public class MyApiTests : ApiBaseTest
+{
+    public MyApiTests(
+        ApiOrDbBackedTestApplication factory,
+        DataInitialisationHelper fixture,
+        ITestOutputHelper testOutputHelper)
+        : base(factory, fixture, testOutputHelper, &quot;MyApi&quot;)
+    {
+    }
+
+    [Fact]
+    public async Task GetSometing()
+    {
+        var testHttpClient = await InitialiseAndGetClientAsync();
+
+        // Get an EF context
+        await using var context = GetContext();
+
+        // Add some data to the DB
+        var myEntity = new MyEntity();
+        context.MyEntities.Add(myEntity);
+        await context.SaveChangesAsync();
+        // ------------------
+
+        // Call the API
+        var url = $&quot;{_apiEndpoint}/{account.Id}&quot;;
+        var response = await testHttpClient.CallGet(url);
+        response.EnsureSuccessStatusCode();
+
+        Assert.Equal(...);
+    }
+</div></section></section><section class="chapter"><h3 id="further-reading" data-toc="further-reading">Further reading</h3><p id="qg5546_747">For more info see:</p><ul class="list _bullet" id="qg5546_748"><li class="list__item" id="qg5546_749"><p><a href="https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/test-asp-net-core-mvc-apps" id="qg5546_750" data-external="true" rel="noopener noreferrer">Test ASP.NET Core MVC apps</a></p></li></ul></section><section class="chapter"><h3 id="for-the-future" data-toc="for-the-future">For the future</h3><ul class="list _bullet" id="qg5546_751"><li class="list__item" id="qg5546_752"><p>We should investigate using <a href="https://testcontainers.com/" id="qg5546_753" data-external="true" rel="noopener noreferrer">Test Containers</a>, also see: <a href="https://hamidmosalla.com/2022/09/10/integration-test-in-asp-net-core-6-using-sqlserver-image-and-testcontainers/" id="qg5546_754" data-external="true" rel="noopener noreferrer">Integration Test In Asp.Net Core 6 Using SqlServer Image and TestContainers</a>.</p></li></ul></section></section><section class="chapter"><h2 id="testing-tips" data-toc="testing-tips">Testing tips</h2><p id="qg5546_755">Below are some tips for unit testing with xUnit.</p><section class="chapter"><h3 id="using-theories" data-toc="using-theories">Using Theories</h3><p id="qg5546_756">As specified in our best practice document, using <code class="code" id="qg5546_757">Theories</code> can simplify our tests and save lines of code. For more information on using Theories, see: <a href="https://hamidmosalla.com/2017/02/25/xunit-theory-working-with-inlinedata-memberdata-classdata/" id="qg5546_758" data-external="true" rel="noopener noreferrer">xUnit Theory: Working With InlineData, MemberData, ClassData</a>.</p><p id="qg5546_759">One short coming of Theories is that it can lead to methods with larger parameter lists, e.g.</p><div class="code-block" data-lang="csharp">
+[Theory]
+[InlineData(1,2,3,4,5,6,7,8,9,....)]
+public void TheoryTest(int param1, int param2, int param3, int param4, int param5, int param6, int param7, int param8, int param9, ...) {
+    ...
+}
+
+</div><p id="qg5546_761">The good news is that there is a way to pass complex types into Theories (though you will struggle to find it documented). Using this technique, the above method could be refactored into:</p><div class="code-block" data-lang="csharp">
+public class TestData {
+    public record TestScenarioDto {
+        public int Param1 { get; set; }
+        .
+        .
+    }
+
+    public static IEnumerable&lt;object[]&gt; TestScenario1()
+    {
+        yield return [ new TestScenarioDto { Param1 = 123, .... }];
+    }
+}
+
+[Theory]
+[MemberData(nameof(TestData.TestScenario1), MemberType = typeof(TestData))]
+public void TheoryTest(TestScenarioDto testScenario) {
+    .
+    .
+    .
+}
+
+</div></section></section><div class="last-modified">Last modified: 13 May 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="code-review-process.html" class="navigation-links__prev">Code Review Process</a><a href="software-ilities.html" class="navigation-links__next">Main &quot;-ilities&quot; of Software Engineering</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b259/app.js"></script></body></html>

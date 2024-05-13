@@ -1,0 +1,196 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-05-13T14:17:47.0964538"><title>Coding Best Practices | 4R Digital</title><script type="application/json" id="virtual-toc-data">[{"id":"key-principles","level":0,"title":"Key Principles","anchor":"#key-principles"},{"id":"best-practices","level":0,"title":"Best Practices","anchor":"#best-practices"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b259/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Coding Best Practices | 4R Digital"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="4R Digital Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/coding-best-practices.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Coding Best Practices | 4R Digital"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/coding-best-practices.html#webpage",
+    "url": "writerside-documentation/coding-best-practices.html",
+    "name": "Coding Best Practices | 4R Digital",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "4R Digital Help"
+}</script><!-- End Schema.org --></head><body data-id="Coding-Best-Practices" data-main-title="Coding Best Practices" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Development-Processes.md|Software Development Practices"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>4R Digital  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Coding-Best-Practices" id="Coding-Best-Practices.md">Coding Best Practices</h1><aside class="prompt" data-type="tip" data-title="" id="-ooz3ix_6690"><p id="-ooz3ix_6691">Here you will find the best practices and market principles for software development, focused on software quality.</p></aside><section class="chapter"><h2 id="key-principles" data-toc="key-principles">Key Principles</h2><section class="chapter"><h3 id="solid-principles" data-toc="solid-principles">SOLID Principles</h3><aside class="prompt" data-type="tip" data-title="" id="-ooz3ix_6692"><p id="-ooz3ix_6693">https://carloszan.medium.com/entendendo-solid-com-exemplos-em-c-98a983d47f</p></aside><ol class="list _decimal" id="-ooz3ix_6694" type="1"><li class="list__item" id="-ooz3ix_6695"><p id="-ooz3ix_6696"><span class="control" id="-ooz3ix_6697">Single Responsibility</span><br> Every scope (Project, Class, or Method) should have only one responsibility, ensuring that it has only one reason to change.</p></li><li class="list__item" id="-ooz3ix_6699"><p id="-ooz3ix_6700"><span class="control" id="-ooz3ix_6701">Open/Closed</span><br> Classes should be open for extension, typically through composition, and closed for modification (except for bug fixes).</p></li><li class="list__item" id="-ooz3ix_6703"><p id="-ooz3ix_6704"><span class="control" id="-ooz3ix_6705">Liskov Substitution</span><br> Classes should adhere to polymorphism and be substitutable for their base abstractions.</p></li><li class="list__item" id="-ooz3ix_6707"><p id="-ooz3ix_6708"><span class="control" id="-ooz3ix_6709">Interface Segregation</span><br> Use specific interfaces that, when combined, compose the complete contract of an object, instead of interfaces with multiple contracts.</p></li><li class="list__item" id="-ooz3ix_6711"><p id="-ooz3ix_6712"><span class="control" id="-ooz3ix_6713">Dependency Inversion</span><br> Dependencies should be inverted, meaning a class should not depend directly on others. Instead, it should depend on abstractions (usually interfaces) provided through injection, ensuring decoupling.</p></li></ol></section><section class="chapter"><h3 id="dry-don-t-repeat-yourself" data-toc="dry-don-t-repeat-yourself">DRY: Don't Repeat Yourself</h3><p id="-ooz3ix_6715">Except in very specific cases, no code logic should be repeated, especially containing business rules. Code repetition is a strong indicator of poor engineering and should be refactored to allow for reuse.</p><aside class="prompt" data-type="tip" data-title="" id="-ooz3ix_6716"><p id="-ooz3ix_6717">https://www.c-sharpcorner.com/article/software-design-principles-dry-kiss-yagni/</p></aside></section><section class="chapter"><h3 id="yagni-you-ain-t-gonna-need-it" data-toc="yagni-you-ain-t-gonna-need-it">YAGNI: You Ain't Gonna Need It</h3><p id="-ooz3ix_6718">Do not implement anything that falls under &quot;might need it later.&quot; If you don't need it now, don't do it. Cases where implementing something for the future makes sense are rare and depend on the certainty that the need will arise. Such cases are justifiable only when the cost of implementing it in the future will be much higher, assessed through experience.</p></section><section class="chapter"><h3 id="kiss-keep-it-simple-stupid" data-toc="kiss-keep-it-simple-stupid">KISS: Keep It Simple Stupid</h3><p id="-ooz3ix_6719">Often, we want to implement fancy and intricate things, but they end up being over-engineered. Ideally, we should always opt for the simplest implementation, as long as it is correct, making future changes and maintenance easier.</p><aside class="prompt" data-type="tip" data-title="" id="-ooz3ix_6720"><p id="-ooz3ix_6721">https://en.wikipedia.org/wiki/KISS_principle</p></aside></section><section class="chapter"><h3 id="tell-don-t-ask" data-toc="tell-don-t-ask">Tell, Don't Ask</h3><p id="-ooz3ix_6722">When developing in an object-oriented manner, operations should always be kept close to their data. Instead of collecting data and processing it, we should instruct the data owner to do so.</p><aside class="prompt" data-type="tip" data-title="" id="-ooz3ix_6723"><p id="-ooz3ix_6724">https://martinfowler.com/bliki/TellDontAsk.html</p></aside></section><section class="chapter"><h3 id="fail-fast" data-toc="fail-fast">Fail Fast</h3><p id="-ooz3ix_6725">Fail Fast by using exceptions and Defensive Programming (below) as opposed to failing slowly, debugging the application to figure out what, when, why and how something went wrong.</p><aside class="prompt" data-type="tip" data-title="" id="-ooz3ix_6726"><p id="-ooz3ix_6727">https://www.martinfowler.com/ieeeSoftware/failFast.pdf</p></aside></section></section><section class="chapter"><h2 id="best-practices" data-toc="best-practices">Best Practices</h2><section class="chapter"><h3 id="defensive-programming" data-toc="defensive-programming">Defensive Programming</h3><p id="-ooz3ix_6728">Defensive programming involves ensuring that subsequent code can be executed without unexpected results, such as exceptions or inappropriate values. Validating parameters and returns from other contexts, regardless of knowledge and/or confidence that they will not cause problems, ensures that the current context will execute perfectly and as expected.</p><p id="-ooz3ix_6729">There are basically two types of defenses:</p><ol class="list _decimal" id="-ooz3ix_6730" type="1"><li class="list__item" id="-ooz3ix_6731"><p><span class="control" id="-ooz3ix_6732">Parameter Validation:</span> In parameter validation, each parameter should be validated against all possible adverse scenarios for the context, especially null values or references. </p><br><p><span class="emphasis" id="-ooz3ix_6734">This validation is not necessary for private methods or constructors.</span></p></li></ol><p id="-ooz3ix_6735"><span class="control" id="-ooz3ix_6736">Bad:</span></p><div class="code-block" data-lang="csharp">
+public class CustomerController
+{ 
+    private readonly ICustomerService _service;
+
+    public CustomerController(ICustomerService service)
+    {
+        this._service = service;
+    }
+    
+    public Customer GetById(string customerId)
+    {
+        return this.service.Find(customerId);
+    }
+}
+</div><p id="-ooz3ix_6738"><span class="control" id="-ooz3ix_6739">Good (Without Guard library):</span></p><div class="code-block" data-lang="csharp">
+public class CustomerController
+{ 
+    private readonly ICustomerService _service;
+
+    public CustomerController(ICustomerService service)
+    {
+        // Defends against injection failure for any reason.
+        this._service = service ?? throw new ArgumentNullException(nameof(service));
+    }
+    
+    public Customer GetById(string customerId)
+    {
+        // Defends against invalid parameter that may cause runtime error.
+        if (string.IsNullOrWhiteSpace(customerId))
+        {
+            throw new ArgumentNullException(nameof(service));
+        }
+    
+        return this.service.Find(customerId);
+    }
+}
+</div><p id="-ooz3ix_6741"><span class="control" id="-ooz3ix_6742">Good (With Guard library):</span></p><div class="code-block" data-lang="csharp">
+public class CustomerController
+{ 
+    private readonly ICustomerService _service;
+
+    public CustomerController(ICustomerService service)
+    {
+        // Defends against injection failure for any reason.
+        this._service = Guard.Against.Null(service);
+    }
+    
+    public Customer GetById(string customerId)
+    {
+        // Defends against invalid parameter that may cause runtime error.
+        Guard.Against.NullOrWhiteSpace(customerId);
+    
+        return this.service.Find(customerId);
+    }
+}
+</div><ol class="list _decimal" id="-ooz3ix_6744" type="1" start="2"><li class="list__item" id="-ooz3ix_6745"><p><span class="control" id="-ooz3ix_6746">Result Validation:</span> Result validation involves ensuring that results of external operations will not cause problems in the continuation of the context. Currently, it is recommended only in libs, like B.Nuget.</p></li></ol><p id="-ooz3ix_6747"><span class="control" id="-ooz3ix_6748">Bad:</span></p><div class="code-block" data-lang="csharp">
+public Customer GetById(string customerId)
+{
+    var customer = this.service.Find(customerId);
+    customer.Code = 12345;
+    
+    return customer;
+}
+</div><p id="-ooz3ix_6750"><span class="control" id="-ooz3ix_6751">Good (Without Guard):</span></p><div class="code-block" data-lang="csharp">
+public Customer GetById(string customerId)
+{
+    var customer = this.service.Find(customerId);
+    if (customer is null)
+    {
+        var message = $&quot;Unable to get the customer by id {customerId}&quot;;
+        throw new InvalidOperationException(message);
+    }
+
+    customer.Code = 12345;
+
+    return customer;
+}
+</div><p id="-ooz3ix_6753"><span class="control" id="-ooz3ix_6754">Good (With Guard):</span></p><div class="code-block" data-lang="csharp">
+public Customer GetById(string customerId)
+{
+    var customer = this.service.Find(customerId);
+    Guard.Ensure.NotNull(customer, $&quot;Unable to get the customer by id {customerId}&quot;);
+
+    customer.Code = 12345;
+
+    return customer;
+}
+</div></section><section class="chapter"><h3 id="code-flow-and-early-exit" data-toc="code-flow-and-early-exit">Code Flow and Early Exit</h3><p id="-ooz3ix_6756">It is recommended to use a code flow pattern in methods that facilitate readability, maintenance, and prevent other issues. With this flow, validations that interrupt the method flow can be performed, avoiding the need for <code class="code" id="-ooz3ix_6757">ifs</code> or other nested structures.</p><p id="-ooz3ix_6758">This flow consists of three parts: Validation, Body, and Result.</p><p id="-ooz3ix_6759"><span class="control" id="-ooz3ix_6760">Example (Without Guard):</span></p><div class="code-block" data-lang="csharp">
+public Customer Get(string id)
+{
+    // Validation: Validates contracts that guarantee the perfect execution of the Body.
+    if (string.IsNullOrWhiteSpace(id))
+    {
+        throw new ArgumentNullException(nameof(id), &quot;Parameter cannot have null or empty value&quot;);
+    }
+
+    if (id.Length &gt; 5)
+    {
+        throw new ArgumentOutOfRangeException(nameof(id), &quot;Invalid parameter format.&quot;);
+    }
+
+    // Body: Operations that lead to the result.
+    var customer = this._customerRepository.Get(id);
+    if (customer is null)
+    {
+        throw new InvalidOperationException(&quot;Unable to find a customer by id.&quot;);
+    }
+    
+    customer.Code = 12345;
+   
+    // Result: Return result, if any, and output values.
+    return customer;
+}
+</div><p id="-ooz3ix_6762"><span class="control" id="-ooz3ix_6763">Example (With Guard):</span></p><div class="code-block" data-lang="csharp">
+public Customer UpdateCustomerCode(string id)
+{
+    // Validation: Validates contracts that guarantee the perfect execution of the Body.
+    Guard.Against.Null(customerId, &quot;Parameter cannot be null&quot;);
+    Guard.Against.NullOrEmpty(customerId, &quot;Parameter cannot be empty&quot;);
+    Guard.Against.NullOrWhiteSpace(customerId, &quot;Invalid parameter format.&quot;);
+    Guard.Against.NegativeOrZero(customerId, &quot;Id must not be zero or negative.&quot;);
+
+    // Body: Operations that lead to the result.
+    var customer = this._customerRepository.Get(id);      
+    Guard.Ensure.NotNull(client, &quot;Unable to find a customer by id.&quot;);
+    
+    customer.Code = 12345;
+   
+    // Result: Return result, if any, and output values.
+    return customer;
+}
+</div></section><section class="chapter"><h3 id="avoid-redundancies-in-code" data-toc="avoid-redundancies-in-code">Avoid Redundancies in Code</h3><p id="-ooz3ix_6765">Redundant code is, as the name suggests, useless. Classic examples include try/catch with an empty catch clause &quot;just to avoid throwing an exception&quot; or <code class="code" id="-ooz3ix_6766">if(true) { // Code }</code>.</p></section><section class="chapter"><h3 id="don-t-have-business-rules-in-extension-methods" data-toc="don-t-have-business-rules-in-extension-methods">Don't Have Business Rules in Extension Methods</h3><p id="-ooz3ix_6767">Extension methods are very useful but detached from the code structure; therefore, they should not contain any business rules. However, they are excellent as helpers.</p></section><section class="chapter"><h3 id="test-before-refactoring" data-toc="test-before-refactoring">Test Before Refactoring</h3><p id="-ooz3ix_6768">It is an excellent practice to have the code covered by tests, especially before refactoring. The chance of breaking the logic is high.</p></section><section class="chapter"><h3 id="whenever-you-touch-code-improve-it-and-its-surroundings" data-toc="whenever-you-touch-code-improve-it-and-its-surroundings">Whenever You Touch Code, Improve It and Its Surroundings</h3><p id="-ooz3ix_6769"><span class="emphasis" id="-ooz3ix_6770">A.k.a Leave it in a better state than when you found it.</span></p><p id="-ooz3ix_6771">It is important to aim for perfection, even if it is impossible. Whenever we are going to change some code, it is recommended to improve that code and its surroundings. This way, we are constantly improving the source code gradually. The scope of changes should be restricted to the lines or methods immediately connected in the same scope, or else we end up redoing the entire system.</p></section><section class="chapter"><h3 id="avoid-switches" data-toc="avoid-switches">Avoid Switches</h3><p id="-ooz3ix_6772">Switches represent decision points with 3 or more options. Besides being highly complex, they also implicitly violate the SRP. It is recommended to avoid switches through the application of design patterns, such as Strategy. As a temporary solution, the switch should reside alone in a decision-making method, as centralized as possible for reuse.</p></section><section class="chapter"><h3 id="never-commit-commented-code" data-toc="never-commit-commented-code">Never Commit Commented Code</h3><p id="-ooz3ix_6773">Commented code should not be committed simply because version control (git) already serves this purpose.</p></section><section class="chapter"><h3 id="todo-comments-must-be-resolved-before-pr-merge" data-toc="todo-comments-must-be-resolved-before-pr-merge">TODO Comments Must Be Resolved Before PR Merge</h3><p id="-ooz3ix_6774">It is important to use them to help organize tasks; however, they must be resolved before merging the PR. Keeping them in the master branch doesn't make sense as they will lose their meaning.</p></section><section class="chapter"><h3 id="avoid-using-magic-numbers-or-strings" data-toc="avoid-using-magic-numbers-or-strings">Avoid Using Magic Numbers or Strings</h3><p id="-ooz3ix_6775">Numbers and strings should be declared in variables with descriptive names for their respective functions. Using them directly in the code makes it difficult or impossible for third parties to understand these values.</p><aside class="prompt" data-type="tip" data-title="" id="-ooz3ix_6776"><p id="-ooz3ix_6777">https://www.codereadability.com/magic-numbers/</p></aside></section><section class="chapter"><h3 id="avoid-nested-ifs" data-toc="avoid-nested-ifs">Avoid Nested Ifs</h3><p id="-ooz3ix_6778">Nested ifs increase code complexity. As a general rule, it should be limited to only 1 level. If you see the need for more levels, refactor to separate methods or even consider design patterns that solve the problem.</p><aside class="prompt" data-type="tip" data-title="" id="-ooz3ix_6779"><p id="-ooz3ix_6780">https://refactoring.guru/replace-nested-conditional-with-guard-clauses</p></aside></section><section class="chapter"><h3 id="prefer-method-calls-within-decision-or-loop-scopes" data-toc="prefer-method-calls-within-decision-or-loop-scopes">Prefer Method Calls Within Decision or Loop Scopes</h3><p id="-ooz3ix_6781">Decision (<span class="emphasis" id="-ooz3ix_6782">if, switch</span>) and loop (<span class="emphasis" id="-ooz3ix_6783">while, do, for, foreach</span>) calls already have their own complexity, so we should reduce that of their scopes. Ideally, we should have the minimum inside their scopes, ideally only calls to methods that perform the operations.</p><p id="-ooz3ix_6784"><span class="control" id="-ooz3ix_6785">Bad:</span></p><div class="code-block" data-lang="csharp">
+public IEnumerable&lt;decimal&gt; CalculateCredit(string[] clientIds)
+{
+    foreach (var clientId in clientIds)
+    {
+        var client = this._clientService.Get(clientId);
+        var salary = this._salaryService.Get(clientId);
+        
+        if (client.Age &gt;= 18)
+        {
+            var credit = salary.MonthlyValue * 0.3;
+            yield return credit;
+        }
+    } 
+}
+</div><p id="-ooz3ix_6787"><span class="control" id="-ooz3ix_6788">Good:</span></p><div class="code-block" data-lang="csharp">
+public IEnumerable&lt;decimal&gt; CalculateClientCredit(string[] clientIds)
+{
+    foreach (var clientId in clientIds)
+    {
+        yield return CalculateCredit(clientId);
+    }
+}
+
+private decimal CalculateCredit(string clientId)
+{
+    const decimal noCredit = 0;
+    var client = this._clientService.Get(clientId);
+    var salary = this._salaryService.Get(clientId);
+    
+    return client.Age &gt;= 18
+        ? CalculateCredit(salary.MonthlyValue)
+        : noCredit;
+}
+
+private decimal CalculateCredit(decimal monthlyValue) =&gt; salary.MonthlyValue * 0.3;
+</div></section><section class="chapter"><h3 id="use-throw-instead-of-throw-ex" data-toc="use-throw-instead-of-throw-ex">Use <code class="code" id="-ooz3ix_6791">Throw</code> Instead of <code class="code" id="-ooz3ix_6792">Throw ex</code></h3><p id="-ooz3ix_6793"><code class="code" id="-ooz3ix_6794">Throw ex</code> will replace the stack trace, causing the loss of the original exception information. For all cases, <code class="code" id="-ooz3ix_6795">Throw</code> is the best option to continue error handling further down the stack.</p></section><section class="chapter"><h3 id="prefer-equality-validations-with-is-whenever-possible" data-toc="prefer-equality-validations-with-is-whenever-possible">Prefer Equality Validations with <code class="code" id="-ooz3ix_6797">is</code> Whenever Possible</h3><p id="-ooz3ix_6798">Equality comparators like <code class="code" id="-ooz3ix_6799">==</code> and <code class="code" id="-ooz3ix_6800">.Equals</code> can be overridden, so when validating, we can have unexpected results. To ensure the explicitness of the written code and avoid surprises, use <code class="code" id="-ooz3ix_6801">is</code> whenever possible.</p><p id="-ooz3ix_6802"><span class="control" id="-ooz3ix_6803">Example:</span></p><div class="code-block" data-lang="csharp">
+public void Add(User user)
+{
+    if (user is null)
+    {
+        throw new ArgumentNullException(nameof(user));
+    }
+    
+    this._context.Add(user);
+}
+</div><p id="-ooz3ix_6805"><code class="code" id="-ooz3ix_6806">is</code> should also be used when validating types for the same reason.</p><p id="-ooz3ix_6807"><span class="control" id="-ooz3ix_6808">Example:</span></p><div class="code-block" data-lang="csharp">
+public static bool ValidateType&lt;T&gt;(object obj) =&gt; obj is T;
+</div></section><section class="chapter"><h3 id="class-size" data-toc="class-size">Class Size</h3><p id="-ooz3ix_6810">The size of a class is usually subjective because it depends a lot on what is implemented. Here are some references that <span class="emphasis" id="-ooz3ix_6811"><span class="control" id="-ooz3ix_6812">may</span></span> indicate that this class is too large and/or violates some principle:</p><ol class="list _decimal" id="-ooz3ix_6813" type="1"><li class="list__item" id="-ooz3ix_6814"><p id="-ooz3ix_6815"><span class="control" id="-ooz3ix_6816">More than 5 injections</span><br> Most classes that adhere to best practices and principles typically will not need more than 5 dependencies. The number of dependencies is a strong indicator that the class violates the SRP and possibly the OCP. In these cases, it is necessary to identify the best way to separate responsibilities so that all new classes adhere to the standards.</p></li><li class="list__item" id="-ooz3ix_6818"><p id="-ooz3ix_6819"><span class="control" id="-ooz3ix_6820">More than 200 lines</span><br> The number of lines is very subjective but can help identify a possible violation of SRP. It is necessary to evaluate whether all the code in the class serves the same responsibility. For example, in the case of a repository, the responsibility is to facilitate reading and writing data through an API. Depending on the number of available APIs, it is possible to exceed 200 lines without violating principles.</p></li><li class="list__item" id="-ooz3ix_6822"><p id="-ooz3ix_6823"><span class="control" id="-ooz3ix_6824">Regions</span><br> When thinking about using regions, the reasons for doing so already indicate a violation of some principle, in addition to SRP. We recommend never using regions, but if you think you should or need to, it is already certain that the class needs to be refactored.</p></li></ol></section><section class="chapter"><h3 id="use-appropriate-data-types" data-toc="use-appropriate-data-types">Use appropriate Data Types</h3><p id="-ooz3ix_6826"><span class="control" id="-ooz3ix_6827">TL;DR:</span></p><aside class="prompt" data-type="tip" data-title="" id="-ooz3ix_6828"><ol class="list _decimal" id="-ooz3ix_6829" type="1"><li class="list__item" id="-ooz3ix_6830"><p>Prefer <code class="code" id="-ooz3ix_6831">structs</code> for small, immutable value types. E.g. Coordinates (Longitude, Latitude), Strongly-typed Ids.</p></li><li class="list__item" id="-ooz3ix_6832"><p>Otherwise, record class for immutable reference types. E.g. DTOs, Models and stateless Services.</p></li><li class="list__item" id="-ooz3ix_6833"><p>Everything else, use classes. E.g. Entities, or anything that has state and/or is mutable.</p></li></ol></aside><p id="-ooz3ix_6835"><span class="control" id="-ooz3ix_6836">Value Types</span></p><p id="-ooz3ix_6837"><span class="control" id="-ooz3ix_6838">Struct</span></p><aside class="prompt" data-type="tip" data-title="" id="-ooz3ix_6839"><ul class="list _bullet" id="-ooz3ix_6840"><li class="list__item" id="-ooz3ix_6841"><p>Logically represents a single value, similar to primitive types (integer, double, and so on)</p></li><li class="list__item" id="-ooz3ix_6842"><p>Instance size smaller than 16 bytes</p></li><li class="list__item" id="-ooz3ix_6843"><p>Immutable</p></li><li class="list__item" id="-ooz3ix_6844"><p>Will not have to be boxed frequently</p></li><li class="list__item" id="-ooz3ix_6845"><p>No inheritance</p></li></ul></aside><p id="-ooz3ix_6846"><span class="control" id="-ooz3ix_6847">Record Struct</span></p><aside class="prompt" data-type="tip" data-title="" id="-ooz3ix_6848"><ul class="list _bullet" id="-ooz3ix_6849"><li class="list__item" id="-ooz3ix_6850"><p>Logically represents a single value, similar to primitive types (integer, double, and so on)</p></li><li class="list__item" id="-ooz3ix_6851"><p>Instance size smaller than 16 bytes</p></li><li class="list__item" id="-ooz3ix_6852"><p>Immutable (must use <code class="code" id="-ooz3ix_6853">readonly record struct</code>)</p></li><li class="list__item" id="-ooz3ix_6854"><p>Will not have to be boxed frequently</p></li><li class="list__item" id="-ooz3ix_6855"><p>No inheritance</p></li><li class="list__item" id="-ooz3ix_6856"><p>Benefits from Record features (With expressions, Positional Parameters, Equality Comparisons, etc.)</p></li><li class="list__item" id="-ooz3ix_6857"><p>Small performance hit when compared to struct (https://nietras.com/2021/06/14/-10-record-struct/)</p></li></ul></aside><p id="-ooz3ix_6858"><span class="control" id="-ooz3ix_6859">Reference Types</span></p><p id="-ooz3ix_6860"><span class="control" id="-ooz3ix_6861">Record Class</span></p><aside class="prompt" data-type="tip" data-title="" id="-ooz3ix_6862"><ul class="list _bullet" id="-ooz3ix_6863"><li class="list__item" id="-ooz3ix_6864"><p>Inheritance</p></li><li class="list__item" id="-ooz3ix_6865"><p>Immutable (must use init in properties);</p></li><li class="list__item" id="-ooz3ix_6866"><p>Benefits from Record features (With expressions, Positional Parameters, Equality Comparisons, etc.);</p></li></ul></aside><p id="-ooz3ix_6867"><span class="control" id="-ooz3ix_6868">Class</span></p><aside class="prompt" data-type="tip" data-title="" id="-ooz3ix_6869"><ul class="list _bullet" id="-ooz3ix_6870"><li class="list__item" id="-ooz3ix_6871"><p>Inheritance</p></li><li class="list__item" id="-ooz3ix_6872"><p>Mutable</p></li></ul></aside></section></section><div class="last-modified">Last modified: 13 May 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="coding-standards.html" class="navigation-links__prev">Coding Standards</a><a href="code-review-process.html" class="navigation-links__next">Code Review Process</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b259/app.js"></script></body></html>
